@@ -8,5 +8,7 @@ A backend view of an ecommerce store that sells a variety of products. You are a
 
 ## Video Walkthrough 
 
+This video show how to create the database as well as shows how to create and delete products. 
+
 https://drive.google.com/file/d/18zdVUJILtpnNY2BKrj1iVahVNp3-mEgk/view
 
