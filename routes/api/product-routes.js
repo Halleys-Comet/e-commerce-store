@@ -6,7 +6,6 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag data
   Product.findAll({
     attributes: [
       "id",
@@ -42,8 +41,6 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
-
   Product.findOne({
     where: {
       id: req.params.id
@@ -123,7 +120,7 @@ router.put('/:id', (req, res) => {
   Product.update(req.body, {
     where: {
       id: req.params.id,
-    },
+    }
   })
     .then((product) => {
       // find all associated tags from ProductTag
@@ -149,7 +146,7 @@ router.put('/:id', (req, res) => {
       // run both actions
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
-        ProductTag.bulkCreate(newProductTags),
+        ProductTag.bulkCreate(newProductTags)
       ]);
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
